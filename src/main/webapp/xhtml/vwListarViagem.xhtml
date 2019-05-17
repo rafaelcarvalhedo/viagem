@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<head>  
+		<link rel="StyleSheet" type="text/css" href="../../css/estilo.css"></link>  
+		<script language="javascript" src="../../js/listarPessoa.js" charset="ISO-8859-1"/>
+	</head>
+	<body>
+		<f:view>
+			<h:form id="formulario">
+				<h:graphicImage url="../../images/agenda.jpg"></h:graphicImage>
+				<br/>
+				<h:dataTable border="1" styleClass="sample" id="pessoas" value="#{viagemControle.listaViagemBean}" var="viagem">
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Nome" />
+						</f:facet>
+						<h:inputHidden value="#{viagem.origem}" />
+						<h:outputLabel value="#{viagem.destino}" />
+					</h:column>
+				</h:dataTable>
+				<br/>
+				<h:messages />
+			</h:form>
+		</f:view>
+	</body>
+
+</html>
