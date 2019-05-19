@@ -114,7 +114,7 @@ public class GenericoDAOImpl<T, ID extends Serializable> implements GenericoDAO<
 	}
 
 	/**
-	 * Lista os objetos T da base de dados
+	 * ViagemControle os objetos T da base de dados
 	 * @return
 	 * @throws ViagemException
 	 */

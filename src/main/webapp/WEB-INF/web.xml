@@ -60,7 +60,7 @@
     
    <!-- Pagina de inicio do projeto -->
    <welcome-file-list>
-     <welcome-file>faces/xhtml/vwListarViagem.xhtml</welcome-file>
+     <welcome-file>faces/pages/vwListarViagem.xhtml</welcome-file>
    </welcome-file-list>
 
 </web-app>

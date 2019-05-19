@@ -39,7 +39,7 @@ public interface BaseService<T, ID extends Serializable>  {
     public T consultar(ID id) throws ViagemException;
 
     /**
-     * Lista todas as pessoas cadastradas
+     * ViagemControle todas as pessoas cadastradas
      * @return
      * @throws ViagemException
      */

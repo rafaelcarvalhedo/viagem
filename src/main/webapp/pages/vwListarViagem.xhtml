@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="template/layout.xhtml"
+				xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:f="http://xmlns.jcp.org/jsf/core"
+				xmlns:h="http://xmlns.jcp.org/jsf/html"
+				xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<ui:define name="headertitle">
+		Lista Viagens
+	</ui:define>
+
+	<ui:define name="content">
+		<h:outputStylesheet library="css" name="lista.viagem.css"/>
+		<h:dataTable styleClass="lista-resultados table mt-3 " id="pessoas" value="#{listaViagemControle.listaViagemBean}" var="viagem">
+			<h:column >
+				<f:facet name="header">
+					<h:outputLabel value="Partida" />
+				</f:facet>
+
+				<h:outputLabel value="#{viagem.diaPartida}" />
+			</h:column>
+			<h:column >
+				<f:facet name="header">
+					<h:outputLabel value="Chegada" />
+				</f:facet>
+
+				<h:outputLabel value="#{viagem.diaChegada}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Origem" />
+				</f:facet>
+
+				<h:outputLabel value="#{viagem.origem}" />
+			</h:column>
+			<h:column >
+				<f:facet name="header">
+					<h:outputLabel value="Destino" />
+				</f:facet>
+
+				<h:outputLabel value="#{viagem.destino}" />
+			</h:column>
+			<h:column headerClass="text-center" styleClass="text-center"   >
+				<f:facet name="header">
+					<h:outputLabel value="#" />
+				</f:facet>
+
+				<h:commandLink styleClass="btn btn-outline-danger m-1" action="editar">
+					<i class="fas fa-trash-alt "></i>
+					<f:param name="idViagem" value="#{viagem.idViagem}"/>
+				</h:commandLink>
+				<h:commandLink styleClass="btn btn-outline-primary m-1">
+					<i class="fas fa-pencil-alt" ></i>
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+		<div class="mt-2 d-flex justify-content-end">
+			<h:commandLink styleClass="btn btn-primary" action="#{listaViagemControle.editar}">
+				Adicionar
+			</h:commandLink>
+		</div>
+		<h:messages />
+	</ui:define>
+</ui:composition>
+</html>

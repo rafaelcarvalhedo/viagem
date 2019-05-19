@@ -50,7 +50,7 @@ public interface GenericoDAO<T, ID extends Serializable> {
 	public void excluir(Integer id) throws ViagemException;
 	
 	/**
-	 * Lista os objetos T da base de dados
+	 * ViagemControle os objetos T da base de dados
 	 * @return
 	 * @throws ViagemException
 	 */

@@ -9,24 +9,12 @@
   <!-- Regras de navegação para a página de Pessoa -->
 	 <navigation-rule>
 	  	<navigation-case>
-	   		<from-outcome>sucesso</from-outcome>
-	   		<to-view-id>/xhtml/sucesso.xhtml</to-view-id>
-	  	</navigation-case>
-	  	<navigation-case>
-	   		<from-outcome>falha</from-outcome>
-	   		<to-view-id>/xhtml/falha.xhtml</to-view-id>
-	  	</navigation-case>
-	  	<navigation-case>
 	   		<from-outcome>listar</from-outcome>
-	   		<to-view-id>/xhtml/vwListarPessoa.xhtml</to-view-id>
+	   		<to-view-id>/pages/vwListarViagem.xhtml</to-view-id>
 	  	</navigation-case>
 	  	<navigation-case>
 	   		<from-outcome>editar</from-outcome>
-	   		<to-view-id>/xhtml/vwEditarPessoa.xhtml</to-view-id>
-	  	</navigation-case>
-	  	<navigation-case>
-	   		<from-outcome>criar</from-outcome>
-	   		<to-view-id>/xhtml/vwCriarPessoa.xhtml</to-view-id>
+	   		<to-view-id>/pages/vwViagem.xhtml</to-view-id>
 	  	</navigation-case>
 	 </navigation-rule> 
 

@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="template/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="headertitle">
+        Cadastro Viagem
+    </ui:define>
+
+    <ui:define name="content">
+        <h:outputStylesheet library="css" name="cadastro.viagem.css"/>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="origemInput">Origem</label>
+                    <h:inputText type="text" class="form-control origemInput" value="#{viagemControle.viagemBean.origem}" id="origemInput" placeholder="City" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="destinoInput">Destino</label>
+                    <h:inputText type="text" class="form-control destinoInput" id="destinoInput" placeholder="State" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="diaPartida">Dia Partida</label>
+                    <h:inputText type="text" class="form-control date-time-input"   data-language='pt-BR' id="diaPartida" placeholder="00/00/0000" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="diaChegada">Dia Chegada</label>
+                    <h:inputText type="text" class="form-control date-time-input" data-language='pt-BR' id="diaChegada" placeholder="00/00/0000" />
+                </div>
+            </div>
+        <div class="mt-2 d-flex justify-content-center">
+            <h:commandLink styleClass="btn btn-primary mr-1" >
+                <i class="fas fa-save " ></i>
+                Salvar
+            </h:commandLink>
+
+            <h:commandLink styleClass="btn btn-secondary" >
+                <i class="fas fa-times" ></i>
+                Cancelar
+            </h:commandLink>
+        </div>
+        <h:outputScript library="js" name="cadastro.viagem.js"/>
+    </ui:define>
+</ui:composition>
+</html>
