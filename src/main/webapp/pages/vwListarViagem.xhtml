@@ -47,11 +47,8 @@
 					<h:outputLabel value="#" />
 				</f:facet>
 
-				<h:commandLink styleClass="btn btn-outline-danger m-1" action="editar">
-					<i class="fas fa-trash-alt "></i>
+				<h:commandLink styleClass="btn btn-outline-primary m-1"  action="#{listaViagemControle.editar}">
 					<f:param name="idViagem" value="#{viagem.idViagem}"/>
-				</h:commandLink>
-				<h:commandLink styleClass="btn btn-outline-primary m-1">
 					<i class="fas fa-pencil-alt" ></i>
 				</h:commandLink>
 			</h:column>

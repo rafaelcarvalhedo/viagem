@@ -1,5 +1,7 @@
-package br.pucgoias.viagem.config;
+package br.pucgoias.spring.context.config;
 
+import br.pucgoias.spring.context.scope.ViewScope;
+import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
@@ -7,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Classe de configuracao da aplicacao
@@ -17,8 +22,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @ComponentScans(value = { @ComponentScan("br.pucgoias.viagem"),
 @ComponentScan("br.pucgoias.viagem") })
-public class AppConfig {
+public class AppConfig  extends CustomScopeConfigurer {
 
+   public AppConfig() {
+      Map<String, Object> map = new HashMap<>();
+      map.put("view", new ViewScope());
+      super.setScopes(map);
+   }
    @Bean
    public LocalEntityManagerFactoryBean geEntityManagerFactoryBean() {
       LocalEntityManagerFactoryBean factoryBean = new LocalEntityManagerFactoryBean();

@@ -52,20 +52,21 @@ $(function () {
     });
 
 });
-
-var diaPartida = IMask(
-    document.getElementById('formulario:diaPartida'),
-    {
-        mask: Date,
-        min: new Date(1990, 0, 1),
-        max: new Date(2030, 0, 1),
-        lazy: false
-    });
-var diaChegada = IMask(
-    document.getElementById('formulario:diaChegada'),
-    {
-        mask: Date,
-        min: new Date(1990, 0, 1),
-        max: new Date(2030, 0, 1),
-        lazy: false
-    });
+$('.diaPartida,.diaChegada').mask('00/00/0000');
+$('.valor').mask("#.##0,00", {reverse: true});
+// var diaPartida = IMask(
+//     document.getElementById('formulario:diaPartida'),
+//     {
+//         mask: Date,
+//         min: new Date(1990, 0, 1),
+//         max: new Date(2030, 0, 1),
+//         lazy: false
+//     });
+// var diaChegada = IMask(
+//     document.getElementById('formulario:diaChegada'),
+//     {
+//         mask: Date,
+//         min: new Date(1990, 0, 1),
+//         max: new Date(2030, 0, 1),
+//         lazy: false
+//     });

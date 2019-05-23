@@ -21,24 +21,28 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="destinoInput">Destino</label>
-                    <h:inputText type="text" class="form-control destinoInput" id="destinoInput" placeholder="State" />
+                    <h:inputText type="text" class="form-control destinoInput" value="#{viagemControle.viagemBean.destino}" id="destinoInput" placeholder="State" />
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="diaPartida">Dia Partida</label>
-                    <h:inputText type="text" class="form-control date-time-input"   data-language='pt-BR' id="diaPartida" placeholder="00/00/0000" />
+                    <h:inputText type="text" class="form-control date-time-input diaPartida"   value="#{viagemControle.viagemBean.diaPartida}" data-language='pt-BR' id="diaPartida" placeholder="00/00/0000" />
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="diaChegada">Dia Chegada</label>
-                    <h:inputText type="text" class="form-control date-time-input" data-language='pt-BR' id="diaChegada" placeholder="00/00/0000" />
+                    <h:inputText type="text" class="form-control date-time-input diaChegada"  value="#{viagemControle.viagemBean.diaChegada}" data-language='pt-BR' id="diaChegada" placeholder="00/00/0000" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="valor">Valor da Viagem</label>
+                    <h:inputText type="text" class="form-control valor"  value="#{viagemControle.viagemBean.valor}" data-language='pt-BR' id="valor" placeholder="00,00" />
                 </div>
             </div>
         <div class="mt-2 d-flex justify-content-center">
-            <h:commandLink styleClass="btn btn-primary mr-1" >
+            <h:commandLink styleClass="btn btn-primary mr-1" action="#{viagemControle.salvar}">
                 <i class="fas fa-save " ></i>
                 Salvar
             </h:commandLink>
 
-            <h:commandLink styleClass="btn btn-secondary" >
+            <h:commandLink styleClass="btn btn-secondary" action="#{viagemControle.cancelar}">
                 <i class="fas fa-times" ></i>
                 Cancelar
             </h:commandLink>

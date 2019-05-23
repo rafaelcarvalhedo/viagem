@@ -2,6 +2,7 @@ package br.pucgoias.viagem.entidade;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Entity
@@ -19,6 +20,8 @@ public class Viagem implements Serializable {
     private String origem;
 
     private String destino;
+
+    private BigDecimal valor;
 
     public Integer getIdViagem() {
         return idViagem;
@@ -58,5 +61,15 @@ public class Viagem implements Serializable {
 
     public void setDestino(String destino) {
         this.destino = destino;
+    }
+
+    public BigDecimal getValor() {
+        if(valor == null)
+            valor = BigDecimal.ZERO;
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
     }
 }

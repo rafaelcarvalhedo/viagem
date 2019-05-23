@@ -1,5 +1,6 @@
 package br.pucgoias.viagem.controle;
 
+import br.pucgoias.spring.context.scope.SpringScopeView;
 import br.pucgoias.viagem.entidade.Viagem;
 import br.pucgoias.viagem.negocio.ViagemService;
 import br.pucgoias.viagem.util.ViagemException;
@@ -7,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.List;
 /**
  *
  */
-@ViewScoped
+@SpringScopeView
 @Controller
 public class ListaViagemControle implements Serializable {
 
@@ -42,22 +42,12 @@ public class ListaViagemControle implements Serializable {
         try {
 
             List<Viagem> listaViagem = viagemService.listar();
-
             if (listaViagem == null || listaViagem.isEmpty()) {
                 return;
             }
-
             //preeche a lista de pessoas da tela
             listaViagemBean = new ArrayList<ViagemBean>();
-            for (Viagem viagem : listaViagem) {
-                ViagemBean viagemBean = new ViagemBean();
-                viagemBean.setIdViagem(viagem.getIdViagem());
-                viagemBean.setDestino(viagem.getDestino());
-                viagemBean.setOrigem(viagem.getOrigem());
-                viagemBean.setDiaChegada(viagem.getDiaChegada());
-                viagemBean.setDiaPartida(viagem.getDiaPartida());
-                listaViagemBean.add(viagemBean);
-            }
+            listaViagem.forEach(viagem -> listaViagemBean.add( new ViagemBean(viagem)));
         } catch (ViagemException e) {
             e.printStackTrace();
             String msg = "Listagem nao realizada. Movito: " + e.getMsg();

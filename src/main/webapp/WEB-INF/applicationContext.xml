@@ -11,7 +11,15 @@
 			http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 
-    <!-- Indica o pacote que sera rastreado pelas anotacoes -->
-    <context:component-scan base-package="br.pucgoias.viagem"/>
-    
+    <!--&lt;!&ndash; Indica o pacote que sera rastreado pelas anotacoes &ndash;&gt;-->
+    <context:component-scan base-package="br.pucgoias"/>
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="view">
+                    <bean class="br.pucgoias.spring.context.scope.ViewScope"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
 </beans>
