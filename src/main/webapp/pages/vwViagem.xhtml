@@ -38,11 +38,16 @@
             </div>
         <div class="mt-2 d-flex justify-content-center">
             <h:commandLink styleClass="btn btn-primary mr-1" action="#{viagemControle.salvar}">
+
                 <i class="fas fa-save " ></i>
                 Salvar
             </h:commandLink>
+            <h:commandLink styleClass="btn btn-danger mr-1" action="#{viagemControle.excluir}" rendered="#{viagemControle.viagemBean != null and viagemControle.viagemBean.idViagem != null}">
 
-            <h:commandLink styleClass="btn btn-secondary" action="#{viagemControle.cancelar}">
+                <i class="fas fa-trash " ></i>
+                Excluir
+            </h:commandLink>
+            <h:commandLink styleClass="btn btn-secondary" action="#{viagemControle.cancelar}" >
                 <i class="fas fa-times" ></i>
                 Cancelar
             </h:commandLink>

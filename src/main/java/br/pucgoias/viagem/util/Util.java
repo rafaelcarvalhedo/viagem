@@ -13,6 +13,7 @@ public class Util {
             DateFormat formatter;
             formatter = new SimpleDateFormat("dd/MM/yyyy");
             // you can change format of date
+            formatter.setLenient(false);
             Date date = formatter.parse(str_date);
             java.sql.Timestamp timeStampDate = new Timestamp(date.getTime());
 

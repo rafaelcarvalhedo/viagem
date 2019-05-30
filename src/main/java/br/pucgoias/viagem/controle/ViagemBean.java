@@ -30,10 +30,10 @@ public class ViagemBean {
 
     }
     public ViagemBean(Viagem viagem) {
-        this.setIdViagem(viagem.getIdViagem());
-        this.setDestino(viagem.getDestino());
-        this.setOrigem(viagem.getOrigem());
-        this.setValor(viagem.getValor().toString());
+        setIdViagem(viagem.getIdViagem());
+        setDestino(viagem.getDestino());
+        setOrigem(viagem.getOrigem());
+        setValor(viagem.getValor().toString().replace(".",","));
         DateTimeFormatter dtf = DateTimeFormatter
                 .ofLocalizedDateTime(FormatStyle.SHORT)
                 .withLocale(new Locale("pt", "br"));

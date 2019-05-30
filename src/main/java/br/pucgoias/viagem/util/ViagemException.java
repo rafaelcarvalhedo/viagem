@@ -11,9 +11,8 @@ public class ViagemException extends Exception {
 	private Exception ex;
 	private String msg;
 
-	public ViagemException(Exception e){
-		ex = e;
-		msg = e.getMessage();
+	public ViagemException(String msg){
+		this.msg = msg;
 	}
 
 	public ViagemException(Exception e, String mensagem){
