@@ -11,27 +11,29 @@ import org.springframework.stereotype.Controller;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
- *
+ * Controlador do formulário de viagens
+ * responsável de por editar, alterar e excluir
  */
 @SpringScopeView
 @Controller
 public class ViagemControle extends BaseController {
 
 
+    /**
+     * Bean utilizado no formulário para edição ou criação
+     */
     private ViagemBean viagemBean;
-
 
     @Autowired
     private ViagemService viagemService;
 
 
-    private List<ViagemBean> listaViagemBean;
-
-
-    //Inicializa controlador do formulario
+    /**
+     * Inicializa ViagemBean, caso seja edição irá existir o parametro idViagem no request
+     * Caso contrário inicializa o viagemBean para criação de um novo
+     */
     @PostConstruct
     public void postConstruct() {
         System.out.println("LOG  ViagemControle");
@@ -60,6 +62,11 @@ public class ViagemControle extends BaseController {
         return "listar";
     }
 
+    /**
+     *  Responsável por salvar uma nova Viagem caso ainda não tenha chave primária,
+     *  ou alterar caso exista uma chave primária tudo isso após validado
+     * @return rediciona para pagina de Listagem de Viagens
+     */
     public String salvar() {
         if (viagemBean != null) {
 
@@ -99,11 +106,12 @@ public class ViagemControle extends BaseController {
                 // Caso tenha id alterar contrario disso é feito a inclusão
                 if (viagem.getIdViagem() != null) {
                     viagemService.alterar(viagem);
+                    mostrarSucesso("Viagem alterada com sucesso!");
                 } else {
                     viagemService.incluir(viagem);
+                    mostrarSucesso("Viagem incluída com sucesso!");
                 }
                 // Exibe mensagem de sucesso
-                mostrarSucesso("Alterações realiadas com sucesso!");
                 return "listar";
             } catch (ViagemException e) {
                 mostrarErro(e.getMsg());
@@ -115,6 +123,10 @@ public class ViagemControle extends BaseController {
         return "";
     }
 
+    /**
+     *  Exclui Viagem caso exista chave primária que é obrigatório
+     * @return redireciona para pagina de Listagem de Viagens
+     */
     public String excluir() {
         if (viagemBean != null) {
 
@@ -140,13 +152,5 @@ public class ViagemControle extends BaseController {
 
     public void setViagemBean(ViagemBean viagemBean) {
         this.viagemBean = viagemBean;
-    }
-
-    public List<ViagemBean> getListaViagemBean() {
-        return listaViagemBean;
-    }
-
-    public void setListaViagemBean(List<ViagemBean> listaViagemBean) {
-        this.listaViagemBean = listaViagemBean;
     }
 }

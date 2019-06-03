@@ -2,13 +2,11 @@ package br.pucgoias.viagem.controle;
 
 import br.pucgoias.viagem.entidade.Viagem;
 import org.springframework.stereotype.Component;
-
-import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.Locale;
 
+/**
+ * Bean para apresentação da Viagem
+ */
 @Component
 public class ViagemBean {
     private Integer idViagem;
@@ -29,14 +27,18 @@ public class ViagemBean {
     public ViagemBean(){
 
     }
+
+    /**
+     * Contrutor do Bean de apresentação
+     * @param viagem
+     */
     public ViagemBean(Viagem viagem) {
         setIdViagem(viagem.getIdViagem());
         setDestino(viagem.getDestino());
         setOrigem(viagem.getOrigem());
         setValor(viagem.getValor().toString().replace(".",","));
-        DateTimeFormatter dtf = DateTimeFormatter
-                .ofLocalizedDateTime(FormatStyle.SHORT)
-                .withLocale(new Locale("pt", "br"));
+        //Formata a data em padrão pt-BR
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         if(viagem.getDiaChegada() != null) {
             this.setDiaChegada(dtf.format(viagem.getDiaChegada().toLocalDateTime()));
         }

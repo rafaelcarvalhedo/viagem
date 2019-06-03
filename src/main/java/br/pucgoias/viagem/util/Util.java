@@ -6,6 +6,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Implementa operações conversão e formatação
+ */
 public class Util {
 
     public static Timestamp convertStringToTimestamp(String str_date) {

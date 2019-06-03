@@ -5,6 +5,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+/**
+ * Entidade de persistência de Viagem
+ */
 @Entity
 @Table(name = "viagem")
 public class Viagem implements Serializable {

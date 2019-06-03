@@ -14,15 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Controlador da pagina de listagem de viagens
+ * Utiliza ciclo de vida de View para que a lista de objetos sejam descartadas ao sair da pagina
  */
 @SpringScopeView
 @Controller
 public class ListaViagemControle implements Serializable {
 
-
-    private ViagemBean viagemBean;
-
+    /**
+     *  Array de ViagenBean utilizadas na visão
+     */
     private List<ViagemBean> listaViagemBean;
 
     @Autowired
@@ -38,6 +39,9 @@ public class ListaViagemControle implements Serializable {
         montarLista();
     }
 
+    /**
+     * Consulta e iniciliza lista de viagens a serem apresentadas
+     */
     public void montarLista() {
         try {
 
@@ -61,20 +65,15 @@ public class ListaViagemControle implements Serializable {
         }
     }
 
+    /**
+     * @return redireciona para pagina de edição de viagem
+     */
     public String editar(){
         return "editar";
     }
 
     private FacesContext getFacesContext() {
         return FacesContext.getCurrentInstance();
-    }
-
-    public ViagemBean getViagemBean() {
-        return viagemBean;
-    }
-
-    public void setViagemBean(ViagemBean viagemBean) {
-        this.viagemBean = viagemBean;
     }
 
     public List<ViagemBean> getListaViagemBean() {

@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Implementa as operações da camada de negocio da entidade Viagem
+ */
 @Service
 @Transactional
 public class ViagemServiceImpl implements ViagemService {

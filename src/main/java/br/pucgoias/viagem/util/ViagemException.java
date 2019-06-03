@@ -1,9 +1,7 @@
 package br.pucgoias.viagem.util;
 
 /**
- * Classe que encapsula as excecoes da aplicacao Agenda
- * @author Gilcimar
- *
+ * Classe implementa Excessões e avisos do sistema direcianada ao Usuário
  */
 public class ViagemException extends Exception {
 	
