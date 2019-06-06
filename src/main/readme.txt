@@ -1,10 +1,10 @@
 13/04/14
-Projeto MeuJSF (Agenda de nomes e telefones)
-Autor: Gilcimar
+Projeto MeuJSF (Viagem)
+Autor: Rafael
 Disciplina: Tecnologia de Desenvolvimento II
 
 Ferramentas:
-	Eclipse Kepler 4.3.2
+	Intellij 2017.2.7
 	Tomcat 7
 	Hsqldb 2.3.2
 	JSF 2.1
